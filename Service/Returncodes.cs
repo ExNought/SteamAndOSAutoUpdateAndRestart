@@ -12,8 +12,10 @@ namespace Service
     {
         public enum Returncode
         {
-            Unknown = 0,
-            OK = 1,
+            OK = 0,
+            Unknown = 666,
+            NotExecutable = 5,
+            NotExisting = 404,
             NotResponding = 1053
         }
     }

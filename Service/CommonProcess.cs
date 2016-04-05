@@ -70,19 +70,22 @@ namespace Service
         }
 
 
-        private bool ValidatePath(string value)
+        private Returncodes.Returncode ValidatePath(string value)
         {
-            bool isValid = false;
             string extension = "";
             if (System.IO.File.Exists(value))
             {
                 extension = System.IO.Path.GetExtension(value);
+                if (extension == "")
+                    return Returncodes.Returncode.NotExecutable;
                 foreach (string execExtension in Configuration.ExecutableExtensionsList)
                 {
-
+                    if (extension == execExtension)
+                        return Returncodes.Returncode.OK;
                 }
+                return Returncodes.Returncode.NotExecutable;
             }
-            return false;
+            return Returncodes.Returncode.NotExisting;
         }
     }
 }

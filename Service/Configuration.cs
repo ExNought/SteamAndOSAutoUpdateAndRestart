@@ -16,7 +16,8 @@ namespace Service
     {
         /// <summary>
         /// Contains all the fileextensions that are interpretated as executable. This is configurable in the interface and stored in the programms Path.
-        /// Extensions get saved with leading dots. E.g. ".exe" instead of "exe"
+        /// Extensions get saved with leading dots. E.g. ".exe" instead of "exe".
+        /// No extension is always considered Not executable as it is too much of a security issue in my eyes.
         /// </summary>
         public static List<string> ExecutableExtensionsList
         {
