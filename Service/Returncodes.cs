@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceAsConsole
+//TODO: Reverse public to internal
+
+namespace Service
 {
-    class Returncodes
+    public class Returncodes
     {
         public enum Returncode
         {

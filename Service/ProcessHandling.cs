@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceAsConsole
+//TODO: Reverse public to internal
+
+namespace Service
 {
-    class ProcessHandling
+    public class ProcessHandling
     {
         private Dictionary<string,SteamProcess> lst_SteamProcesses;
         private Dictionary<string,CommonProcess> lst_CommonProcesses;
