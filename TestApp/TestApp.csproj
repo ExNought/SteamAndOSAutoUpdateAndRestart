@@ -50,9 +50,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{4b0dbf2f-66f5-47b9-b835-7d90e5d04f10}</Project>
       <Name>Service</Name>
