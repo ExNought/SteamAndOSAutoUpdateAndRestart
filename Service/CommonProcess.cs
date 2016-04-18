@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 
 //TODO: Reverse public to internal
+//TODO: Check if wait for 5 seconds causes problems at service shutdown.
+//TODO: Add scripted inputs. http://inputsimulator.codeplex.com / http://stackoverflow.com/questions/14064512/simulate-key-stroke-in-any-application
 
 namespace Service
 {
@@ -11,11 +14,15 @@ namespace Service
         private string path;
         private string parameters;
         private bool doValidatePath;
+        private Process process;
+
+        
+
 
         #endregion classvariables
 
         #region properties
-        
+
         /// <summary>
         /// This contains the path to the executable.
         /// If ValidatePath is true the Property checks if the 
@@ -49,26 +56,53 @@ namespace Service
             get { return doValidatePath; }
             set { doValidatePath = value; }
         }
-
         #endregion properties
 
         public Returncodes.Returncode Start()
         {
-            return Returncodes.Returncode.NotResponding;
+            process.StartInfo.FileName = Path;
+            process.StartInfo.Arguments = Parameters;
+            try
+            {
+                process.Start();
+                return Returncodes.Returncode.OK;
+            }
+            catch(InvalidProgramException)
+            {
+                return Returncodes.Returncode.NotExisting;
+            }
+            catch(System.ComponentModel.Win32Exception)
+            {
+                return Returncodes.Returncode.NotExecutable;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public Returncodes.Returncode Stop()
         {
-            return Returncodes.Returncode.NotResponding;
+            //Waits for 5 seconds
+            if (process.WaitForExit(5000))
+                return Returncodes.Returncode.OK;
+            else
+                return Returncodes.Returncode.NotResponding;
         }
 
         public Returncodes.Returncode Stop(bool Force = false)
         {
             if (!Force)
                 return Stop();
-            return Returncodes.Returncode.NotResponding;
+            //First try the gentle way, but only with 2 seconds wait.
+            if (process.WaitForExit(2000))
+                return Returncodes.Returncode.OK;
+            else
+            {
+                process.Kill();
+                return Returncodes.Returncode.GotKilled;
+            }
         }
-
 
         private Returncodes.Returncode ValidatePath(string value)
         {

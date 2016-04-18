@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 
 //TODO: Reverse public to internal
-//TODO: Add validation to make sure there are no dots in front of the extension.
+//TODO: Add validation to make sure there are dots in front of the extension.
 //TODO: Add default values.
 
 namespace Service

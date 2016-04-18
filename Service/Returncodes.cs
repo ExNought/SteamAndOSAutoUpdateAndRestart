@@ -16,7 +16,9 @@ namespace Service
             Unknown = 666,
             NotExecutable = 5,
             NotExisting = 404,
-            NotResponding = 1053
+            NotResponding = 1053,
+            GotKilled = 111
+
         }
     }
 }
