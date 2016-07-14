@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public partial class Service1 : ServiceBase
+    public partial class SteamCMDHandler : ServiceBase
     {
-        public Service1()
+        public SteamCMDHandler()
         {
             InitializeComponent();
         }

@@ -1,6 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
 
+/// <summary>
+/// This is "deprecated" as all of the entries in here will likely be deleted once my 
+/// Dev_SteamCMDService gets to a beta-stage 
+/// (which is called feature-complete, in case you only know "betas" as a modern style of demos 
+/// with bugs ...)
+/// </summary>
+
+
 //TODO: Reverse public to internal
 //TODO: Check if wait for 5 seconds causes problems at service shutdown.
 //TODO: Add scripted inputs. http://inputsimulator.codeplex.com / http://stackoverflow.com/questions/14064512/simulate-key-stroke-in-any-application

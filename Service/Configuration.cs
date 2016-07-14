@@ -6,6 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
+/// <summary>
+/// This is "deprecated" as all of the entries in here will likely be deleted once my 
+/// Dev_SteamCMDService gets to a beta-stage 
+/// (which is called feature-complete, in case you only know "betas" as a modern style of demos 
+/// with bugs ...)
+/// </summary>
+
+
 //TODO: Reverse public to internal
 //TODO: Add validation to make sure there are dots in front of the extension.
 //TODO: Add default values.

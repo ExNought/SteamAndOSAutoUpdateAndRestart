@@ -4,6 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// This is "deprecated" as all of the entries in here will likely be deleted once my 
+/// Dev_SteamCMDService gets to a beta-stage 
+/// (which is called feature-complete, in case you only know "betas" as a modern style of demos 
+/// with bugs ...)
+/// </summary>
+
+
 //TODO: Reverse public to internal
 
 namespace Service
@@ -24,7 +32,7 @@ namespace Service
             get { return lst_CommonProcesses; }
             set { lst_CommonProcesses = value; }
         }
-
+        
         public Returncodes.Returncode startAllProcesses()
         {
             foreach(KeyValuePair<string, SteamProcess> kvp_stringSteamProcess in lst_SteamProcesses)
